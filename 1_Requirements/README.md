@@ -57,4 +57,23 @@
 - The data are stored digitally and it helps in storing data, modifying data and accessing data.
 
 
+## Detail requirements:
+
+#### High Level Requirements:
+| ID | Description | Status |
+|------|------|------|
+| HLR1 | User shall able to add new Contacts | Implemented
+| HLR2 | User shall able to List all Contacts | Implemented
+| HLR3 | User shall able to Search for Contacts |	Implemented
+| HLR4 | User shall able to Edit a Contact | Implemented
+| HLR5 | User shall able For Delete a Contact  |	Implemented
+
+#### Low Level Requirements:
+
+| ID | Description | Status |
+|-------|------|------|
+| LLR1 | User shall able to fetch the required Contact | Implemented 
+| LLR2 | System must display data without error | Implemented
+
+
 
