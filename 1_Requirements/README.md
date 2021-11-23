@@ -14,6 +14,7 @@
 - Search for contact
 - Edit a contact
 - Delete a contact
+- Exit a contact
 
 
 ## SWOT Analysis :
@@ -67,6 +68,7 @@
 | HLR3 | User shall able to Search for Contacts |	Implemented
 | HLR4 | User shall able to Edit a Contact | Implemented
 | HLR5 | User shall able For Delete a Contact  |	Implemented
+| HLR6 | User shall able to exit a contact | Implemented
 
 #### Low Level Requirements:
 
