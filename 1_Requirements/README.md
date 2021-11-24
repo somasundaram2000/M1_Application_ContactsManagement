@@ -62,18 +62,18 @@
 #### High Level Requirements:
 | ID | Description | Status |
 |------|------|------|
-| HLR1 | User shall able to add new Contacts | Implemented
-| HLR2 | User shall able to Print Contacts | Implemented
-| HLR3 | User shall able to Modify Contacts |	Implemented
-| HLR4 | User shall able to Search Contact | Implemented
-| HLR5 | User shall able for Delete Contact  |	Implemented
+| HLR1 | User shall able to add new contacts | Implemented
+| HLR2 | User shall able to Print contacts | Implemented
+| HLR3 | User shall able to Modify contacts |	Implemented
+| HLR4 | User shall able to Search contact | Implemented
+| HLR5 | User shall able for Delete contact  |	Implemented
 | HLR6 | User shall able to Close contact | Implemented
 
 #### Low Level Requirements:
 
 | ID | Description | Status |
 |-------|------|------|
-| LLR1 | User shall able to fetch the required Contact | Implemented 
+| LLR1 | User shall able to fetch the required contact | Implemented 
 | LLR2 | System must display data without error | Implemented
 
 
