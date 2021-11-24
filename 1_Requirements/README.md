@@ -66,7 +66,7 @@
 | HLR2 | User shall able to Print Contacts | Implemented
 | HLR3 | User shall able to Modify Contacts |	Implemented
 | HLR4 | User shall able to Search Contact | Implemented
-| HLR5 | User shall able For Delete Contact  |	Implemented
+| HLR5 | User shall able for Delete Contact  |	Implemented
 | HLR6 | User shall able to Close contact | Implemented
 
 #### Low Level Requirements:
