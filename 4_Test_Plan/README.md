@@ -5,11 +5,11 @@
 | Test ID | Description | Expected Output | Actual Output | Result
 |--|--|--|--|--|
 | ID 01 | Adding a new Contact | SUCCESS  | SUCCESS | PASS
-| ID 02 | List all Contacts | SUCCESSS | SUCCESS | PASS 
-| ID 03 | Searching Contact |  RECORDS  | SUCCESS | PASS
-| ID 04 | Editing Contact | SUCCESSS | SUCCESS | PASS 
-| ID 05 | Deleting Contact | SUCCESSS | SUCCESS | PASS 
-| ID 06 | Exit Contacts | EXIT  | EXIT | PASS
+| ID 02 | Print Contacts | SUCCESSS | SUCCESS | PASS 
+| ID 03 | Modify Contact |  RECORDS  | SUCCESS | PASS
+| ID 04 | Search Contact | SUCCESSS | SUCCESS | PASS 
+| ID 05 | Delete Contact | SUCCESSS | SUCCESS | PASS 
+| ID 06 | Close Contact | EXIT  | EXIT | PASS
  
 
 ## Low Level Test Plan 
