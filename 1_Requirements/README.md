@@ -1,7 +1,7 @@
 # Requirements
 ## Introduction :
 
-- You can create/add a new contact of a person with their name, mobile number, email id's and address.
+- You can create/add a new contact of a person with their name, address, mobile number, gender and email id's.
 - If you want to edit any information of a particular person, you can also Modify it.
 - You can also delete any contact.
 
