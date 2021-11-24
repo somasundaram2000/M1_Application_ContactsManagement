@@ -8,7 +8,7 @@
 
 ## Features :
 
-- Add a New Contact
+- Add a New contact
 - Print all contacts
 - Modify contact
 - Search contact
