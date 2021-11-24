@@ -1,364 +1,240 @@
-
-#include<stdio.h>
-
 #include<conio.h>
-
 #include<string.h>
-
-#include<process.h>
-
-#include<stdlib.h>
-
-#include<dos.h>
-
+#include<stdio.h>
 struct contact
-
 {
-
-    long ph;
-
-    char name[20],add[20],email[30];
-
-} list;
-
-char query[20],name[20];
-
-FILE *fp, *ft;
-
-int i,n,ch,l,found;
-
+ char nam[50];
+ char adres[50];
+ long int m_no;
+ char gender[10];
+ char m_id[100];
+};
+void Menu();
+void Data();
+void ARec();
+void ListRec();
+void ModRec();
+void DelRec();
+void SRec();
+int Exit();
 int main()
-
 {
-
-main:
-
-    system("cls");    /* ************Main menu ***********************  */
-
-    printf("\n\t **** Welcome to Contact Management System ****");
-
-    printf("\n\n\n\t\t\tMAIN MENU\n\t\t=====================\n\t\t[1] Add a new Contact\n\t\t[2] List all Contacts\n\t\t[3] Search for contact\n\t\t[4] Edit a Contact\n\t\t[5] Delete a Contact\n\t\t[0] Exit\n\t\t=================\n\t\t");
-
-    printf("Enter the choice:");
-
-    scanf("%d",&ch);
-
-    switch(ch)
-
+ Menu();
+ return 0;
+}
+void Menu()
+{
+printf("\t\t WELCOME TO CONTACT MANAGEMENT");
+printf("\n\n\t\t\t MENU \t\t\n\n"); 
+printf("\t\t 1.Add Contacts\n\t\t 2.Print all Contact\n\t\t 3.Modify Contacts\n");
+printf("\t\t 4.Search contacts\n\t\t 5.Delete Contacts\n\t\t 6.Close Phonebook\n");
+switch(getchar())
+{
+ case '1': ListRec();
+ break;
+ case '2': ARec();
+ break;
+ case '3': ModRec();
+ break;
+ case '4': SRec();
+ break;
+ case '5': DelRec();
+ break;
+ case '6': Exit();
+ break;
+ default: printf("\n Enter 1 to 6 only.");
+getchar();
+}
+}
+int Exit()
+{
+Menu();
+return 0;
+}
+    void ARec()
+{
+    FILE *f;
+    struct contact p;
+    f=fopen("project","ab+");
+    printf("\n Name: ");
+    Data(p.nam);
+    printf("\nAddress: ");
+    Data(p.adres);
+    printf("\nMobile no.:");
+    scanf("%ld",&p.m_no);
+    printf("Gender:");
+    Data(p.gender);
+    printf("\ne-mail:");
+    Data(p.m_id);
+    fwrite(&p,sizeof(p),1,f);
+    fflush(stdin);
+    printf("\nrecord saved");
+fclose(f);
+getchar();
+Menu();
+}
+void ListRec()
+{
+  struct contact p;
+  FILE *f;
+f=fopen("project","rb");
+if(f==NULL)
+{
+printf("\n No contacts detected yet!:\n");
+Exit();
+}
+while(fread(&p,sizeof(p),1,f)==1)
+{
+  printf("\n\n\n YOUR RECORD IS\n\n");
+  printf("\nName=%s\nAdress=%s\nMobile no=%ld\ngender=%s\nEmail=%s",p.nam,p.adres,p.m_no,p.gender,p.m_id);
+  getchar();
+}
+fclose(f);
+getchar();
+Menu();
+}
+void SRec()
+{
+struct contact p;
+FILE *f;
+char name[100];
+f=fopen("project","rb");
+if(f==NULL)
+{
+ printf("\n Error in opening\n");
+ Exit();
+}
+printf("\nEnter name of person to search\n");
+Data(name);
+while(fread(&p,sizeof(p),1,f)==1)
+{
+ if(strcmp(p.nam,name)==0)
+{
+  printf("\n\tDetail Information About %s",name);
+  printf("\nName:%s\naddress:%s\nMobile no:%ld\ngender:%s\nEmail:%s",p.nam,p.adres,p.m_no,p.gender,p.m_id);
+}
+  else
+  printf("Not found");
+}
+fclose(f);
+getchar();
+Menu();
+}
+void DelRec()
+{
+  struct contact p;
+  FILE *f,*ft;
+   int flag;
+   char name[100];
+   f=fopen("project","rb");
+if(f==NULL)
+printf("Contact data not yet added.");
+else
+{
+    ft=fopen("temp", "wb+");
+    if(ft==NULL)
+ printf("file opening error");
+    else
     {
-
-    case 0:
-
-        printf("\n\n\t\tAre you sure you want to exit?");
-
-        break;
-
-        /* *********************Add new contacts************  */
-
-    case 1:
-
-        system("cls");
-
-        fp=fopen("contact.dll","a");
-
-        for (;;)
-
-        {
-            fflush(stdin);
-
-            printf("To exit enter blank space in the name input\nName (Use identical):");
-
-            scanf("%[^\n]",&list.name);
-
-            if(stricmp(list.name,"")==0 || stricmp(list.name," ")==0)
-
-                break;
-
-            fflush(stdin);
-
-            printf("Phone:");
-
-            scanf("%ld",&list.ph);
-
-            fflush(stdin);
-
-            printf("address:");
-
-            scanf("%[^\n]",&list.add);
-
-            fflush(stdin);
-
-            printf("email address:");
-
-            gets(list.email);
-
-            printf("\n");
-
-            fwrite(&list,sizeof(list),1,fp);
-
-        }
-
-        fclose(fp);
-
-        break;
-
-        /* *********************list of contacts*************************  */
-
-    case 2:
-
-        system("cls");
-
-        printf("\n\t\t================================\n\t\t\tLIST OF CONTACTS\n\t\t================================\n\nName\t\tPhone No\t    Address\t\tE-mail ad.\n=================================================================\n\n");
-
-        for(i=97; i<=122; i=i+1)
-
-        {
-
-            fp=fopen("contact.dll","r");
-
-            fflush(stdin);
-
-            found=0;
-
-            while(fread(&list,sizeof(list),1,fp)==1)
-
-            {
-
-                if(list.name[0]==i || list.name[0]==i-32)
-
-                {
-
-                    printf("\nName\t: %s\nPhone\t: %ld\nAddress\t: %s\nEmail\t: %s\n",list.name,
-
-                           list.ph,list.add,list.email);
-
-                    found++;
-
-                }
-
-            }
-
-            if(found!=0)
-
-            {
-                printf("=========================================================== [%c]-(%d)\n\n",i-32,found);
-
-                getch();
-            }
-
-            fclose(fp);
-
-        }
-
-        break;
-
-        /* *******************search contacts**********************  */
-
-    case 3:
-
-        system("cls");
-
-        do
-
-        {
-
-            found=0;
-
-            printf("\n\n\t..::CONTACT SEARCH\n\t===========================\n\t..::Name of contact to search: ");
-
-            fflush(stdin);
-
-            scanf("%[^\n]",&query);
-
-            l=strlen(query);
-
-            fp=fopen("contact.dll","r");
-
-            system("cls");
-
-            printf("\n\n..::Search result for '%s' \n===================================================\n",query);
-
-            while(fread(&list,sizeof(list),1,fp)==1)
-
-            {
-
-                for(i=0; i<=l; i++)
-
-                    name[i]=list.name[i];
-
-                name[l]='\0';
-
-                if(stricmp(name,query)==0)
-
-                {
-
-                    printf("\n..::Name\t: %s\n..::Phone\t: %ld\n..::Address\t: %s\n..::Email\t: %s\n",list.name,list.ph,list.add,list.email);
-
-                    found++;
-
-                    if (found%4==0)
-
-                    {
-
-                        printf("..::Press any key to continue...");
-
-                        getch();
-
-                    }
-
-                }
-
-            }
-
-            if(found==0)
-
-                printf("\n..::No match found!");
-
-            else
-
-                printf("\n..::%d match(s) found!",found);
-
-            fclose(fp);
-
-            printf("\n ..::Try again?\n\n\t[1] Yes\t\t[0] No\n\t");
-
-            scanf("%d",&ch);
-
-        }
-        while(ch==1);
-
-        break;
-
-        /* *********************edit contacts************************/
-
-    case 4:
-
-        system("cls");
-
-        fp=fopen("contact.dll","r");
-
-        ft=fopen("temp.dat","w");
-
-        fflush(stdin);
-
-        printf("..::Edit contact\n===============================\n\n\t..::Enter the name of contact to edit:");
-
-        scanf("%[^\n]",name);
-
-        while(fread(&list,sizeof(list),1,fp)==1)
-
-        {
-
-            if(stricmp(name,list.name)!=0)
-
-                fwrite(&list,sizeof(list),1,ft);
-
-        }
-
-        fflush(stdin);
-
-        printf("\n\n..::Editing '%s'\n\n",name);
-
-        printf("..::Name(Use identical):");
-
-        scanf("%[^\n]",&list.name);
-
-        fflush(stdin);
-
-        printf("..::Phone:");
-
-        scanf("%ld",&list.ph);
-
-        fflush(stdin);
-
-        printf("..::address:");
-
-        scanf("%[^\n]",&list.add);
-
-        fflush(stdin);
-
-        printf("..::email address:");
-
-        gets(list.email);
-
-        printf("\n");
-
-        fwrite(&list,sizeof(list),1,ft);
-
-        fclose(fp);
-
-        fclose(ft);
-
-        remove("contact.dll");
-
-        rename("temp.dat","contact.dll");
-
-        break;
-
-        /* ********************delete contacts**********************/
-
-    case 5:
-
-        system("cls");
-
-        fflush(stdin);
-
-        printf("\n\n\t..::DELETE A CONTACT\n\t==========================\n\t..::Enter the name of contact to delete:");
-
-        scanf("%[^\n]",&name);
-
-        fp=fopen("contact.dll","r");
-
-        ft=fopen("temp.dat","w");
-
-        while(fread(&list,sizeof(list),1,fp)!=0)
-
-            if (stricmp(name,list.name)!=0)
-
-                fwrite(&list,sizeof(list),1,ft);
-
-        fclose(fp);
-
-        fclose(ft);
-
-        remove("contact.dll");
-
-        rename("temp.dat","contact.dll");
-
-        break;
-
-    default:
-
-        printf("Invalid choice");
-
-        break;
-
-    }
-
-    printf("\n\n\n..::Enter the Choice:\n\n\t[1] Main Menu\t\t[0] Exit\n");
-
-    scanf("%d",&ch);
-
-    switch (ch)
-
+    printf("Enter contact name:");
+    Data(name);
+    fflush(stdin);
+    while(fread(&p,sizeof(p),1,f)==1)
     {
-
-    case 1:
-
-        goto main;
-
-    case 0:
-
-        break;
-
-    default:
-
-        printf("Invalid choice");
-
-        break;
-
+        if(strcmp(p.nam, name)!=0)
+            fwrite(&p,sizeof(p),1,ft);
+        if(strcmp(p.nam,name)==0)
+    flag=1;
     }
-
-    return 0;
-
+fclose(f);
+fclose(ft);
+if(flag!=1)
+{
+    printf("No Record To Delete.");
+    remove("temp.txt");
+}
+    else
+  {
+    remove("project");
+    rename("temp.txt","project");
+    printf("Record Deleted");
+  }
+ }
+}
+getch();
+Menu();
+}
+void ModRec()
+{
+int c;
+FILE *f;
+int flag=0;
+struct contact p,s;
+    char nam[50];
+    f=fopen("project","rb+");
+    if(f==NULL)
+           {
+               printf("No Contact added yet!\n");
+               Exit();
+           }
+    else
+    {
+    printf("Enter Name to modify:\n");
+    Data(nam);
+    while(fread(&p,sizeof(p),1,f)==1)
+    {
+       if(strcmp(nam,p.nam)==0)
+       {
+        printf("\nName:");
+        Data(s.nam);
+        printf("\nAddress:");
+        Data(s.adres);
+        printf("\nPhone no:");
+        scanf("%ld",&s.m_no);
+        printf("\nGender:");
+        Data(s.gender);
+        printf("\ne-mail:");
+        Data(s.m_id);
+        fseek(f,-sizeof(p),SEEK_CUR);
+        fwrite(&s,sizeof(p),1,f);
+        flag=1;
+        break;
+    }
+      fflush(stdin);
+   }
+   if(flag==1)
+     printf("\n Your contact is modified");
+   else
+   printf(" \n Contact data not found");
+   fclose(f);
+  }
+getch();
+Menu();
+}
+void Data(char *Name)
+{
+int i=0,j;
+char ch,cha;
+do
+{
+    ch=getch();
+        if(ch!=8&&ch!=13)
+        {
+            *(Name+i)=ch;
+            putchar(ch);
+            i++;
+        }
+        if(ch==8)
+        {
+           if(i>0)
+           {
+             i--;
+           }
+           for(j=0;j<i;j++)
+           {cha=*(Name+j);
+             putchar(cha);
+           }
+         }
+   }while(ch!= 13);
+   *(Name+i)='\0';
 }
