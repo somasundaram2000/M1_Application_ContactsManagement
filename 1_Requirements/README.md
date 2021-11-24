@@ -2,19 +2,18 @@
 ## Introduction :
 
 - You can create/add a new contact of a person with their name, mobile number, email id's and address.
-- After creating, all the contacts will be listed one by one.
-- If you want to edit any information of a particular person, you can also Edit by clicking on it.
+- If you want to edit any information of a particular person, you can also Modify it.
 - You can also delete any contact.
 
 
 ## Features :
 
 - Add a New Contact
-- List all contacts
-- Search for contact
-- Edit a contact
-- Delete a contact
-- Exit a contact
+- Print all contacts
+- Modify contact
+- Search contact
+- Delete contact
+- Close contact
 
 
 ## SWOT Analysis :
@@ -64,11 +63,11 @@
 | ID | Description | Status |
 |------|------|------|
 | HLR1 | User shall able to add new Contacts | Implemented
-| HLR2 | User shall able to List all Contacts | Implemented
-| HLR3 | User shall able to Search for Contacts |	Implemented
-| HLR4 | User shall able to Edit a Contact | Implemented
-| HLR5 | User shall able For Delete a Contact  |	Implemented
-| HLR6 | User shall able to exit a contact | Implemented
+| HLR2 | User shall able to Print Contacts | Implemented
+| HLR3 | User shall able to Modify Contacts |	Implemented
+| HLR4 | User shall able to Search Contact | Implemented
+| HLR5 | User shall able For Delete Contact  |	Implemented
+| HLR6 | User shall able to Close contact | Implemented
 
 #### Low Level Requirements:
 
