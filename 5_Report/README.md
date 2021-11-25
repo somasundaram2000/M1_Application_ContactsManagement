@@ -86,6 +86,40 @@
 ![Flow_Chart](https://user-images.githubusercontent.com/94282752/143374166-21a75fd5-8eb6-40fc-a38b-6ecc8a325212.jpg)
 
 
+## Test Plan :
+
+## High Level Test Plan :
+
+| Test ID | Description | Expected Output | Actual Output | Result
+|--|--|--|--|--|
+| ID 01 | Adding a new contact | SUCCESS  | SUCCESS | PASS
+| ID 02 | Print contact | SUCCESSS | SUCCESS | PASS 
+| ID 03 | Modify contact |  RECORDS  | SUCCESS | PASS
+| ID 04 | Search contact | SUCCESSS | SUCCESS | PASS 
+| ID 05 | Delete contact | SUCCESSS | SUCCESS | PASS 
+| ID 06 | Close contact | EXIT  | EXIT | PASS
+ 
+
+## Low Level Test Plan :
+
+| Test ID | Description |Expected Output| Actual Output |Result
+|--|--|--|--|--|
+| ID 01 | User shall able to fetch perfect Required Contact | SUCCESS | SUCCESS | PASS 
+| ID 02 | Displaying data | SUCCESS | SUCCESS | PASS
+
+
+## Output :
+
+![Output](https://user-images.githubusercontent.com/94282752/143387436-7f080cc5-e767-472b-b1d3-df6da7bc50a9.png)
+
+- You can Enter your choice from the Main Menu.
+- If you press Option 1, it will add a new contact.
+- If you press Option 2, it will print all the contacts.
+- If you press Option 3, it will modify the contact which you choose.
+- If you press Option 4, it will search for the contact.
+- If you press Option 5, it will delete the particular contact which you choose.
+- If you press Option 6, it will close the contact.
+
 
 
 
