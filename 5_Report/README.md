@@ -77,5 +77,20 @@
 | LLR2 | System must display data without error | Implemented
 
 
+## Design : 
+### Behaviour Diagram : 
+![Behaviour_Diagram](https://user-images.githubusercontent.com/94282752/143374094-112ca791-0a09-4e21-806d-2e7460d4bb50.png)
+
+
+### Structural Diagram : 
+![Flow_Chart](https://user-images.githubusercontent.com/94282752/143374166-21a75fd5-8eb6-40fc-a38b-6ecc8a325212.jpg)
+
+
+
+
+
+
+
+
 
 
