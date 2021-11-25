@@ -24,10 +24,11 @@ int main()
 }
 void Menu()
 {
-printf("\t\t WELCOME TO CONTACT MANAGEMENT");
-printf("\n\n\t\t\t MENU \t\t\n\n"); 
-printf("\t\t 1.Add Contacts\n\t\t 2.Print all Contact\n\t\t 3.Modify Contacts\n");
-printf("\t\t 4.Search contacts\n\t\t 5.Delete Contacts\n\t\t 6.Close Phonebook\n");
+printf("\t\t *** WELCOME TO CONTACTS MANAGEMENT ***");
+printf("\n\n\t\t\t MAIN MENU \t\t\n\n"); 
+printf("\t\t 1.Add Contact\n\t\t 2.Print all Contacts\n\t\t 3.Modify Contact\n");
+printf("\t\t 4.Search contact\n\t\t 5.Delete Contact\n\t\t 6.Close Contact\n");
+printf("\n\t\tEnter your choice : ");
 switch(getchar())
 {
  case '1': ListRec();
