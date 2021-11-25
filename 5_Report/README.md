@@ -9,7 +9,7 @@ Codacy | Code Inspector | Code cppcheck |
 
 [![code quality](https://api.codiga.io/project/30073/score/svg)](https://app.codiga.io/project/30073/dashboard)
 
-[![code grade](https://api.codiga.io/project/30053/status/svg)](https://app.codiga.io/project/30053/dashboard)
+[![code grade](https://api.codiga.io/project/30073/status/svg)](https://app.codiga.io/project/30073/dashboard)
 
 [![Code Quality - Cppcheck](https://github.com/somasundaram2000/M1_Application_ContactsManagement/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/somasundaram2000/M1_Application_ContactsManagement/actions/workflows/cppcheck.yml)
 
